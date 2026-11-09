@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+<title>Home Assistant Uitlezen - minimaal</title>
+</head>
+<body>
+
+<div id="ha-waarde">--</div>
+
+<script>
+async function laadHAData()
+{
+}
+// Automatisch laden bij openen van de pagina
+laadHAData();
+// Elke 60 seconden automatisch verversen
+setInterval(laadHAData, 15000);
+</script>
+
+</body>
+</html>
