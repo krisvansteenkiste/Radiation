@@ -21,7 +21,7 @@
                 
                 const json = await response.json();
                 // We gaan ervan uit dat je JSON-bestand er zo uitziet: {"state": "waarde"}
-                document.getElementById('ha-waarde').innerText = json.state;
+                document.getElementById('ha-waarde').innerText = json.state + " - " + json.date;
                 document.getElementById('status').innerText = ""; 
             } catch (error) {
                 console.error(error);
