@@ -77,7 +77,7 @@ Similar one-liner codes are available in Python that performs various functions.
         async function laadGitHubData() {
             try {
                 // We voegen een unieke 'cache-buster' timestamp toe zodat de browser altijd de nieuwste data ophaalt
-                const response = await fetch(`./data.json?t=${new Date().getTime()}`, {
+                const response = await fetch(`./sensor.json?t=${new Date().getTime()}`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 });
@@ -86,7 +86,7 @@ Similar one-liner codes are available in Python that performs various functions.
                 
                 const json = await response.json();
                 // We gaan ervan uit dat je JSON-bestand er zo uitziet: {"state": "waarde"}
-                document.getElementById('ha-waarde').innerText = json.state + " - " + json.date;
+                document.getElementById('ha-waarde').innerText = json.state;
                 document.getElementById('status').innerText = ""; 
             } catch (error) {
                 console.error(error);
