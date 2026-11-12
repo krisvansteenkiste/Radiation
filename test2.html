@@ -1,24 +1,104 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page with Index Sidebar</title>
+  <style>
+    /* Smooth scrolling when clicking index links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      display: flex; /* Places sidebar and main content side-by-side */
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      width: 240px;
+      height: 100vh; /* Full viewport height */
+      position: sticky; /* Keeps sidebar fixed while scrolling */
+      top: 0;
+      background-color: #f4f4f9;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .sidebar a:hover {
+      background-color: #e2e2ec;
+    }
+
+    /* Main Content Styling */
+    .content {
+      flex: 1; /* Takes up the remaining width */
+      padding: 40px;
+      max-width: 800px;
+    }
+
+    section {
+      margin-bottom: 60px;
+      min-height: 400px; /* Extra height just to demonstrate scrolling */
+    }
+  </style>
+</head>
 <body>
-	<header>
-		<h1>My Blog</h1>
-	</header>
-	<nav>
-		<a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
-	</nav>
-	<section>
-		<h2>Latest Posts</h2>
-		<article>
-			<h3>Post Title</h3>
-			<p>This is a brief introduction to the blog post.</p>
-		</article>
-	</section>
-	<aside>
-		<h2>About Me</h2>
-		<p>Short bio or profile information.</p>
-	</aside>
-	<footer>
-		<p>&copy; 2026 My Blog</p>
-	</footer>
+
+  <!-- Index / Sidebar -->
+  <aside class="sidebar">
+    <h2>Contents</h2>
+    <nav>
+      <ul>
+        <li><a href="#section1">1. Introduction</a></li>
+        <li><a href="#section2">2. Getting Started</a></li>
+        <li><a href="#section3">3. Advanced Tips</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Page Content -->
+  <main class="content">
+    <section id="section1">
+      <h1>1. Introduction</h1>
+      <p>Welcome to the page. Click the links on the left to jump to different sections.</p>
+    </section>
+
+    <section id="section2">
+      <h1>2. Getting Started</h1>
+      <p>Here is the second section of your content.</p>
+    </section>
+
+    <section id="section3">
+      <h1>3. Advanced Tips</h1>
+      <p>Here is the final section of your content.</p>
+    </section>
+  </main>
+
 </body>
 </html>
+
