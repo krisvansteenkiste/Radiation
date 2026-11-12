@@ -20,16 +20,21 @@ in<html >
 			text-align: center;
 			padding: 1em;
 		}
-	  .sidebar {
-    	  width: 240px;
-		  height: 100vh; /* Full viewport height */
-		  position: sticky; /* Keeps sidebar fixed while scrolling */
-		  top: 0;
-		  background-color: #f4f4f9;
-		  border-right: 1px solid #ddd;
-		  padding: 20px;
-		  box-sizing: border-box;
-    }
+	    .sidebar {
+    	    width: 240px;
+			height: 100vh; /* Full viewport height */
+			position: sticky; /* Keeps sidebar fixed while scrolling */
+			top: 0;
+			background-color: #f4f4f9;
+			border-right: 1px solid #ddd;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+	    .content {
+			flex: 1; /* Takes up the remaining width */
+			padding: 40px;
+			max-width: 800px;
+		}
 	</style>
 </head>
 <body>
