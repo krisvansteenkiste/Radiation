@@ -20,6 +20,16 @@ in<html >
 			text-align: center;
 			padding: 1em;
 		}
+	  .sidebar {
+    	  width: 240px;
+		  height: 100vh; /* Full viewport height */
+		  position: sticky; /* Keeps sidebar fixed while scrolling */
+		  top: 0;
+		  background-color: #f4f4f9;
+		  border-right: 1px solid #ddd;
+		  padding: 20px;
+		  box-sizing: border-box;
+    }
 	</style>
 </head>
 <body>
@@ -32,7 +42,7 @@ in<html >
 		<a href="#">Services</a>
 		<a href="#">Contact</a>
 	</nav>
-	<aside>
+	<aside class="sidebar">
 		Indexdeeltje
 	</aside>
 	<main>
