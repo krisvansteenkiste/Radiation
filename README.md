@@ -1,3 +1,2 @@
 # Radiation
-Stralingsstatistiek
-Een standaard HTML-pagina
+<BR>Stralingsstatistiek
