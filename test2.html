@@ -150,18 +150,18 @@
   </nav>
 
   <main>
-    <div id="ha-waarde">--</div>
     <section id="section1" class="active">
       <h2>Current Radiation</h2>
       <div class="card">
         <b>CPM</b>
-        <div id="ha-waard">--</div>
+        <div id="ha-waarde">--</div>
+        <div id="status"></div>
       </div>
       <p>Normal background radiation:</p>
       <dl>
-        <dd>- Cosmic + Soil = 0,8mSv/y</li>
-        <dd>- Radon alfa = 1,3mSv/y</li>
-        <dd>- Body = 0,3mSv/y</li>
+        <dd>- Cosmic + Soil = 0,8mSv/y</dd>
+        <dd>- Radon alfa = 1,3mSv/y</dd>
+        <dd>- Body = 0,3mSv/y</dd>
       </dl>
       My Geiger-Muller counter detects the Cosmic and Soil radiation. The 0,8mSv/y corresponds with an average of 25 clicks per minute on my counter.
     </section>
@@ -192,6 +192,25 @@
   </footer>
   
   <script>
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main section');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        // Prevents the browser from jumping down the page
+        event.preventDefault();
+        // Remove 'active' class from all links and sections
+        navLinks.forEach(item => item.classList.remove('active'));
+        sections.forEach(sec => sec.classList.remove('active'));
+        // Add 'active' class to the clicked link
+        link.classList.add('active');
+        // Get the target section ID from the href (e.g., "#section2") and show it
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.classList.add('active');
+        }
+      });
+    });
     async function laadGitHubData() {
       try {
         // We voegen een unieke 'cache-buster' timestamp toe zodat de browser altijd de nieuwste data ophaalt
