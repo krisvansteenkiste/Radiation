@@ -161,8 +161,7 @@
         <div id="ha-waarde">--</div>
         <div id="status"></div>
       </div>
-      <br>
-      <p>Normal background radiation:</p>
+      <br><br></bre><p>Normal background radiation:</p>
       <ul>
         <li>External Radiation = 0,8mSv/y:
           <ul>
@@ -173,17 +172,7 @@
         <li>Radon Gas (alpha-radiation) = 1,3mSv/y</li>
         <li>Internal exposure (isotopes in your body) = 0,3mSv/y</li>
       </ul>
-      
-      <dl>
-        <dd>- External Radiation = 0,8mSv/y:
-          <ul>
-            <li>- Terrestrial (soil and building materials) = 0,45mSv/y</li>
-            <li>- Cosmic Radiation = 0,35mSv/y</li>
-        </dd>
-        <dd>- Radon Gas (alpha-radiation) = 1,3mSv/y</dd>
-        <dd>- Internal exposure (isotopes in your body) = 0,3mSv/y</dd>
-      </dl>
-      My Geiger-Müller counter detects the external radiation. It's sensitivity delivers an average of 25 clicks per minute, corresponding with The 0,8mSv/y.
+      <br>My Geiger-Müller counter detects the external radiation. It's sensitivity delivers an average of 25 clicks per minute, corresponding with The 0,8mSv/y.
     </section>
 
     <section id="section2">
@@ -236,7 +225,7 @@
         const response = await fetch(`./sensor.json?t=${new Date().getTime()}`);
         if (!response.ok) throw new Error(`Status: ${response.status}`);
         const json = await response.json();
-        document.getElementById('ha-waarde').innerText = json.state;
+        document.getElementById('ha-waarde').innerText = Math.round(json.state);
         document.getElementById('status').innerText = "";
       }
       catch (error) {
