@@ -24,10 +24,22 @@
         "nav    main   aside"
         "footer footer footer";
     }
-.card { background: white; padding: 20px; border-radius: 8px; inline-size: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center}
-
-        #ha-waarde { font-size: 2.5rem; font-weight: bold; color: #03a9f4; }
-
+    
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      inline-size: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    #ha-waarde {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #03a9f4;
+    }
+    
     header {
       grid-area: header;
       background-color: #1e293b;
@@ -138,19 +150,20 @@
   </nav>
 
   <main>
+    <div id="ha-waarde">--</div>
     <section id="section1" class="active">
       <h2>Current Radiation</h2>
-<div class="card">
-<b>CPM</b>
-<div id="ha-waarde">--</div>
-</div>
+      <div class="card">
+        <b>CPM</b>
+        <div id="ha-waard">--</div>
+      </div>
       <p>Normal background radiation:</p>
-<dl>
-  <dd>- Cosmic + Soil = 0,8mSv/y</li>
-  <dd>- Radon alfa = 1,3mSv/y</li>
-  <dd>- Body = 0,3mSv/y</li>
-</dl>
-My Geiger-Muller counter detects the Cosmic and Soil radiation. The 0,8mSv/y corresponds with an average of 25 clicks per minute on my counter.
+      <dl>
+        <dd>- Cosmic + Soil = 0,8mSv/y</li>
+        <dd>- Radon alfa = 1,3mSv/y</li>
+        <dd>- Body = 0,3mSv/y</li>
+      </dl>
+      My Geiger-Muller counter detects the Cosmic and Soil radiation. The 0,8mSv/y corresponds with an average of 25 clicks per minute on my counter.
     </section>
 
     <section id="section2">
