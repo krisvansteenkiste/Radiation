@@ -5,100 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test 2</title>
   <style>
-    /* Smooth scrolling when clicking index links */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      display: flex; /* Places sidebar and main content side-by-side */
-    }
-
-    /* Sidebar Styling */
-    .sidebar {
-      width: 240px;
-      height: 100vh; /* Full viewport height */
-      position: sticky; /* Keeps sidebar fixed while scrolling */
-      top: 0;
-      background-color: #f4f4f9;
-      border-right: 1px solid #ddd;
-      padding: 20px;
+    * {
       box-sizing: border-box;
-    }
-
-    .sidebar h2 {
-      font-size: 1.1rem;
-      margin-top: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
+      margin: 0;
       padding: 0;
     }
 
-    .sidebar li {
-      margin-bottom: 10px;
+    body {
+      font-family: system-ui, sans-serif;
+      display: grid;
+      min-height: 100vh;
+      /* Defines 3 rows: auto header, flexible middle, auto footer */
+      grid-template-rows: auto 1fr auto;
+      /* Defines 3 columns: 200px left nav, flexible main, 200px right aside */
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+    }
+.card { background: white; padding: 20px; border-radius: 8px; inline-size: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center}
+
+        #ha-waarde { font-size: 2.5rem; font-weight: bold; color: #03a9f4; }
+
+    header {
+      grid-area: header;
+      background-color: #1e293b;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
     }
 
-    .sidebar a {
+    nav {
+      grid-area: nav;
+      background-color: #f1f5f9;
+      padding: 1.5rem;
+      border-right: 1px solid #cbd5e1;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    nav a {
       text-decoration: none;
-      color: #333;
+      color: #0f172a;
       display: block;
-      padding: 6px 10px;
-      border-radius: 4px;
+      font-weight: 500;
+      padding: 6px 6px;
+      border-radius: 12px;
     }
 
-    .sidebar a:hover {
+    nav a:hover {
       background-color: #e2e2ec;
     }
 
-    /* Main Content Styling */
-    .content {
-      flex: 1; /* Takes up the remaining width */
-      padding: 40px;
-      max-width: 800px;
+    /* Highlights the currently selected navigation link */
+    nav a.active {
+      background-color: #cbd5e1;
+      font-weight: 700;
     }
 
-    section {
-      margin-bottom: 60px;
-      min-height: 400px; /* Extra height just to demonstrate scrolling */
+    main {
+      grid-area: main;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+
+    /* Hides all sections inside main by default */
+    main section {
+      display: none;
+    }
+
+    /* Displays only the active section */
+    main section.active {
+      display: block;
+    }
+
+    aside {
+      grid-area: aside;
+      background-color: #f8fafc;
+      padding: 1.5rem;
+      border-left: 1px solid #cbd5e1;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Stack columns vertically on mobile screens */
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "aside"
+          "footer";
+      }
+
+      nav, aside {
+        border: none;
+        border-bottom: 1px solid #cbd5e1;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Index / Sidebar -->
-  <aside class="sidebar">
-    <h2>Contents</h2>
-    <nav>
-      <ul>
-        <li><a href="#section1">1. Introduction</a></li>
-        <li><a href="#section2">2. Getting Started</a></li>
-        <li><a href="#section3">3. Advanced Tips</a></li>
-      </ul>
-    </nav>
-  </aside>
+  <header>
+    <h1>Radioactivity in Kapellen</h1>
+  </header>
 
-  <!-- Main Page Content -->
-  <main class="content">
-    <section id="section1">
-      <h1>1. Introduction</h1>
-      <p>Welcome to the page. Click the links on the left to jump to different sections.</p>
+  <nav>
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="#section1" class="active">Current Radiation</a></li>
+      <li><a href="#section2">Background info</a></li>
+      <li><a href="#section3">Technical setup</a></li>
+      <li><a href="#section4">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="section1" class="active">
+      <h2>Current Radiation</h2>
+<div class="card">
+<b>CPM</b>
+<div id="ha-waarde">--</div>
+</div>
+      <p>Normal background radiation:</p>
+<dl>
+  <dd>- Cosmic + Soil = 0,8mSv/y</li>
+  <dd>- Radon alfa = 1,3mSv/y</li>
+  <dd>- Body = 0,3mSv/y</li>
+</dl>
+My Geiger-Muller counter detects the Cosmic and Soil radiation. The 0,8mSv/y corresponds with an average of 25 clicks per minute on my counter.
     </section>
 
     <section id="section2">
-      <h1>2. Getting Started</h1>
-      <p>Here is the second section of your content.</p>
+      <h2>Background info</h2>
+      <p>Iets over afstand tot Doel.</p>
     </section>
 
     <section id="section3">
-      <h1>3. Advanced Tips</h1>
-      <p>Here is the final section of your content.</p>
+      <h2>Technical setup</h2>
+      <p>Goed geknutseld.</p>
+    </section>
+
+    <section id="section4">
+      <h2>Contact</h2>
+      <p>Contact information goes here.</p>
     </section>
   </main>
 
+  <aside>
+    <h2>Sidebar</h2>
+    <p>Place related links, ads, or author info here.</p>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 Website Footer</p>
+  </footer>
+
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Gets the target ID from the href attribute (e.g., "#section2" -> "section2")
+        const targetId = link.getAttribute('href').substring(1);
+
+        // Updates the active highlight on the navigation menu
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+
+        // Shows the matching section and hides the rest
+        sections.forEach(section => {
+          section.classList.toggle('active', section.id === targetId);
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
-
